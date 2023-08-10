@@ -86,7 +86,6 @@ export default {
 </script>
 
 <style>
-/* Add Vuetify-specific styling to the table */
 .v-data-table {
   width: 100%;
 }
@@ -95,12 +94,12 @@ export default {
 .v-data-table tr td {
   padding: 12px 16px;
   border: none;
-  border-right: 1px solid #ddd; /* Add right border for cells */
+  border-right: 1px solid #ddd; 
 }
 
 .v-data-table tr th:last-child,
 .v-data-table tr td:last-child {
-  border-right: none; /* Remove right border for the last cell in each row */
+  border-right: none; 
 }
 
 .v-data-table tr th {
@@ -116,14 +115,14 @@ export default {
   background-color: #fafafa;
 }
 
-/* Custom CSS to style the table as Excel-like cells */
+
 .excel-table {
   border-collapse: collapse;
 }
 
 .excel-cell {
   border: 1px solid #ddd;
-  border-right: none; /* Remove right border for each cell */
+  border-right: none; 
   padding: 8px 12px;
   min-width: 80px;
   text-align: left;
@@ -133,7 +132,7 @@ export default {
 }
 
 .excel-cell:last-child {
-  border-right: 1px solid #ddd; /* Add right border for the last cell in each row */
+  border-right: 1px solid #ddd; 
 }
 
 .excel-cell:hover {
