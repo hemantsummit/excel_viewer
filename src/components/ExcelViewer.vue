@@ -1,5 +1,7 @@
 <template>
-  <v-app>
+  <v-card>
+    <v-card-title>Excel Viewer</v-card-title>
+    <v-card-text>
     <input type="file" ref="fileInput" accept=".xls,.xlsx,.csv" @change="loadExcelFile" />
     <div v-if="dataTable">
       <v-data-table :headers="headers" :items="dataTable" class="excel-table">
@@ -16,7 +18,8 @@
         </template>
       </v-data-table>
     </div>
-  </v-app>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>

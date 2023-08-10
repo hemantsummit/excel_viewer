@@ -10,6 +10,7 @@
 
 <script>
 import mammoth from 'mammoth';
+// import * as docx from "docx-preview";
 
 export default {
   data() {

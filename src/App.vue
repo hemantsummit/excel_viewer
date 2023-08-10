@@ -3,26 +3,33 @@
     <v-toolbar color="primary" dark>
       <v-toolbar-title>Viewer App</v-toolbar-title>
     </v-toolbar>
-    <v-container fluid>
+    <v-container fluid class="d-flex flex-column align-center justify-center">
       <v-row class="mb-4">
-        <v-col cols="6">
-          <v-btn @click="showExcelViewer" color="primary">Show Excel Viewer</v-btn>
+        <v-col cols="6" class="text-center">
+          <v-btn @click="showExcelViewer" color="primary">Excel Viewer</v-btn>
         </v-col>
-        <v-col cols="6">
-          <v-btn @click="showDocumentViewer" color="primary">Show Document Viewer</v-btn>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col>
-          <v-card v-if="currentViewer === 'excel'" class="elevation-2">
-            <ExcelViewer />
-          </v-card>
-          <v-card v-else-if="currentViewer === 'document'" class="elevation-2">
-            <DocumentViewer />
-          </v-card>
+        <v-col cols="6" class="text-center">
+          <v-btn @click="showDocumentViewer" color="primary">Document Viewer</v-btn>
         </v-col>
       </v-row>
     </v-container>
+    
+    <!-- Modal Dialog -->
+    <v-dialog v-model="dialogVisible" max-width="1400px">
+      <v-card>
+        <v-card-title>
+        </v-card-title>
+        <v-card-text>
+          <v-card class="elevation-2" style="max-height: 500px; overflow: auto;">
+            <ExcelViewer v-if="currentViewer === 'excel'" />
+            <DocumentViewer v-else-if="currentViewer === 'document'" />
+          </v-card>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn color="primary" @click="dialogVisible = false">Close</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-app>
 </template>
 
@@ -45,20 +52,27 @@ export default {
   data() {
     return {
       currentViewer: null,
+      dialogVisible: false,
     };
   },
   methods: {
     showExcelViewer() {
       this.currentViewer = 'excel';
+      this.dialogVisible = true;
     },
     showDocumentViewer() {
       this.currentViewer = 'document';
+      this.dialogVisible = true;
     },
   },
 };
 </script>
 
-
-<style>
-@import '~vuetify/dist/vuetify.min.css';
+<style scoped>
+.align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 </style>
